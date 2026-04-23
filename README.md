@@ -1,20 +1,28 @@
 # Tradexo.ai — Trade Smarter with Counterfactual Intelligence
 
-![Tradexo Banner](./assets/landing.png)
+![Tradexo Banner](./1.png)
 
 > **Not just tracking trades — improving decisions.**
 
 Tradexo.ai is an AI-powered trading analytics platform that helps traders **replay trades, simulate better decisions, and eliminate behavioral mistakes** using **counterfactual analysis**.
-
-
-![Tradex](./assets/landing.png)
-![Tradex](./assets/landing.png)
-![Tradex](./assets/landing.png)
-![Tradex](./assets/landing.png)
-![Tradex](./assets/landing.png)
-![Tradex](./assets/landing.png)
-
 ---
+##  UI Preview
+
+<details>
+<summary>Click to view screenshots</summary>
+
+<br>
+
+![Tradexo Banner](./1.png)
+![Tradex](./2.png)
+![Tradex](./3.png)
+![Tradex](./4.png)
+![Tradex](./5.png)
+![Tradex](./6.png)
+![Tradex](./7.png)
+![Tradex](./8.png)
+
+</details>
 
 ## What Makes This Different?
 
