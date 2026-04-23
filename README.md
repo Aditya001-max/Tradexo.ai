@@ -1,22 +1,188 @@
-# 🔬 Counterfactual Trade Analysis Engine
+# Tradexo.ai — Trade Smarter with Counterfactual Intelligence
 
-A production-grade, multi-agent system that analyzes trades by running **1,600+ parallel counterfactual simulations** and generating **AI-powered behavioral coaching**.
+![Tradexo Banner](./assets/landing.png)
 
-## 🏗️ Architecture
+> **Not just tracking trades — improving decisions.**
 
+Tradexo.ai is an AI-powered trading analytics platform that helps traders **replay trades, simulate better decisions, and eliminate behavioral mistakes** using **counterfactual analysis**.
+
+---
+
+## What Makes This Different?
+
+Most tools answer:
+> *“What happened?”*
+
+Tradexo answers:
+> **“What should you have done instead?”**
+
+It bridges the gap between **execution** and **decision quality**.
+
+---
+
+##  Core Idea: Counterfactual Analysis
+
+Instead of just analyzing your trade, Tradexo generates **alternate scenarios**:
+
+- What if you entered later?
+- What if you exited earlier?
+- What if you reduced position size?
+- What if you waited for confirmation?
+
+This transforms trading from guessing → **data-driven learning**
+
+---
+
+## Features
+
+### Trade Replay Engine
+- Visual replay of your trade on chart  
+- Compare actual vs optimal entry/exit  
+- Identify timing inefficiencies  
+
+---
+### P&L Heatmap (Entry vs Exit Timing)
+
+![Heatmap](./assets/heatmap.png)
+
+- Entry shift vs Exit shift grid  
+- Blue = profit zone  
+- Red = loss zone  
+- Quickly find optimal decision window  
+
+---
+
+### Behavioral Analytics
+
+![Radar](./assets/radar.png)
+
+Detect patterns like:
+- Early Entry Bias  
+- FOMO Exit  
+- Overconfidence  
+- Poor Risk Management  
+
+---
+
+### Counterfactual Scenarios
+
+![Dashboard](./assets/dashboard.png)
+
+Examples:
+- Wait +15 minutes → Better confirmation  
+- Reduce size → Lower risk  
+- Tighter stop → Better control  
+
+---
+
+### Trade Journal + Reflection
+
+![Journal](./assets/journal.png)
+
+- Timeline of trade lifecycle  
+- Reflection prompts  
+- Rule-building system  
+
+---
+
+### AI Coaching Narration
+
+Example insight:
+
+> “Waiting 15 minutes would have converted a ₹13,500 loss into ₹9,180 profit.”
+
+---
+
+## How It Works
+
+### Step 1 — Input Trade
+
+### Step 2 — Run Counterfactual Engine
+- Simulates alternate decisions  
+- Evaluates outcomes  
+
+### Step 3 — Analyze Results
+- Heatmaps  
+- P&L comparison  
+- Behavioral insights  
+
+### Step 4 — Improve Strategy
+- Extract rules  
+- Apply in future trades  
+
+---
+## Agents
+```
+| # | Agent | Role |
+|---|-------|------|
+| 1 | **Ingestion Agent** | Validates & normalizes trade input |
+| 2 | **Market Data Agent** | Fetches OHLCV data via Yahoo Finance |
+| 3 | **Simulation Agent** | Generates parameter grid (1,620 combos) |
+| 4 | **Parallel Agent** | Distributes simulations across CPU cores |
+| 5 | **Aggregation Agent** | Builds heatmaps, rankings, metrics |
+| 6 | **Pattern Agent** | Detects behavioral mistakes |
+| 7 | **LLM Agent** | Generates coaching via HuggingFace |
+| 8 | **API Agent** | FastAPI endpoints |
+| 9 | **Storage Agent** | Database persistence |
+```
+
+## Architecture
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    FastAPI (API Agent)                    │
+│                    FastAPI (API Agent)                  │
 ├────────┬────────┬──────────┬──────────┬────────┬────────┤
 │Ingest  │Market  │Simulation│ Parallel │Pattern │  LLM   │
 │Agent   │Data    │Agent     │ Agent    │Agent   │ Agent  │
 │        │Agent   │          │(Workers) │        │(HF API)│
 ├────────┴────────┴──────────┴──────────┴────────┴────────┤
-│              Storage Agent (SQLite/PostgreSQL)            │
+│              Storage Agent (SQLite/PostgreSQL)          │
 └─────────────────────────────────────────────────────────┘
 ```
 
-## ⚡ Quick Start
+---
+
+## Tech Stack
+
+**Frontend**
+- React / Next.js  
+- TailwindCSS  
+- Recharts / Chart.js  
+
+**Backend (Optional / Planned)**
+- Node.js / Express  
+- Python (ML / analytics)  
+
+**Core**
+- Counterfactual simulation engine  
+- Time-series analysis  
+- Rule-based + ML hybrid logic  
+
+---
+
+## Project Structure
+---
+backend/
+│
+├── agents/ # Decision-making agents 
+├── api/ # FastAPI routes and endpoints
+├── simulation/ # Counterfactual trade simulation logic
+├── utils/ # Helper utilities
+│
+├── init.py
+├── config.py # Configuration settings
+├── database.py # DB connection setup
+├── main.py # FastAPI entry point
+├── models.py # Database models
+├── schemas.py # Request/response schemas
+│
+├── .env
+├── .env.example
+├── requirements.txt
+└── README.md
+---
+
+
+## Quick Start
 
 ### 1. Install Dependencies
 ```bash
@@ -27,7 +193,7 @@ pip install -r requirements.txt
 ### 2. Configure Environment
 ```bash
 cp .env.example .env
-# Edit .env and add your HF_API_TOKEN (optional — system works without it)
+# Edit .env and add your HF_API_TOKEN
 ```
 
 ### 3. Start the Server
@@ -52,52 +218,44 @@ curl -X POST http://localhost:8000/api/v1/submit-trade \
 ```bash
 curl http://localhost:8000/api/v1/results/{trade_id}
 ```
+##  Example Insight
 
-## 📡 API Endpoints
+| Case | Result |
+|------|--------|
+| Actual Trade | ❌ -₹13,500 |
+| With Confirmation | ✅ +₹9,180 |
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/v1/submit-trade` | Submit a trade for analysis |
-| GET | `/api/v1/results/{trade_id}` | Get analysis results |
-| GET | `/api/v1/health` | Health check |
-| GET | `/docs` | Swagger UI |
-| GET | `/redoc` | ReDoc UI |
+---
 
-## 🤖 Agents
+## Behavioral Patterns
 
-| # | Agent | Role |
-|---|-------|------|
-| 1 | **Ingestion Agent** | Validates & normalizes trade input |
-| 2 | **Market Data Agent** | Fetches OHLCV data via Yahoo Finance |
-| 3 | **Simulation Agent** | Generates parameter grid (1,620 combos) |
-| 4 | **Parallel Agent** | Distributes simulations across CPU cores |
-| 5 | **Aggregation Agent** | Builds heatmaps, rankings, metrics |
-| 6 | **Pattern Agent** | Detects behavioral mistakes |
-| 7 | **LLM Agent** | Generates coaching via HuggingFace |
-| 8 | **API Agent** | FastAPI endpoints |
-| 9 | **Storage Agent** | Database persistence |
+- Early Entry Bias  
+- Stop Loss Drift  
+- FOMO Exit  
+- Oversizing  
 
-## 📊 Output Format
+---
+## Vision
 
-```json
-{
-  "trade_id": "uuid",
-  "status": "completed",
-  "actual_trade": { ... },
-  "heatmap": [{ "entry_shifts": [...], "exit_shifts": [...], "pnl_matrix": [[...]] }],
-  "best_trade": { "pnl": 450.00, "improvement": "+246%" },
-  "top_3": [...],
-  "patterns": [{ "tag": "EARLY_ENTRY", "detail": "..." }],
-  "llm_coaching": "Based on your trade...",
-  "metrics": { "total_simulations": 1620, "profitable_pct": 73.5 }
-}
-```
+To build the **decision intelligence layer for traders**  
+where every trade becomes a **learning loop**.
 
-## 🔧 Tech Stack
+---
 
-- **Backend:** FastAPI + Python 3.11+
-- **Parallel Processing:** concurrent.futures (ProcessPoolExecutor)
-- **Data:** pandas, numpy, yfinance
-- **Database:** SQLite (swappable to PostgreSQL)
-- **LLM:** HuggingFace Inference API
-- **Caching:** In-memory TTL cache (swappable to Redis)
+## ⚠️ Disclaimer
+
+This project is for **educational purposes only**.  
+Trading involves financial risk.
+
+---
+
+## Contributing
+
+---
+
+##  Contact
+
+- GitHub: https://github.com/Aditya001-max  
+- Project: https://github.com/Aditya001-max/Tradexo.ai  
+
+---
