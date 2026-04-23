@@ -6,6 +6,14 @@
 
 Tradexo.ai is an AI-powered trading analytics platform that helps traders **replay trades, simulate better decisions, and eliminate behavioral mistakes** using **counterfactual analysis**.
 
+
+![Tradex](./assets/landing.png)
+![Tradex](./assets/landing.png)
+![Tradex](./assets/landing.png)
+![Tradex](./assets/landing.png)
+![Tradex](./assets/landing.png)
+![Tradex](./assets/landing.png)
+
 ---
 
 ## What Makes This Different?
@@ -43,7 +51,6 @@ This transforms trading from guessing → **data-driven learning**
 ---
 ### P&L Heatmap (Entry vs Exit Timing)
 
-![Heatmap](./assets/heatmap.png)
 
 - Entry shift vs Exit shift grid  
 - Blue = profit zone  
@@ -54,7 +61,6 @@ This transforms trading from guessing → **data-driven learning**
 
 ### Behavioral Analytics
 
-![Radar](./assets/radar.png)
 
 Detect patterns like:
 - Early Entry Bias  
@@ -66,7 +72,6 @@ Detect patterns like:
 
 ### Counterfactual Scenarios
 
-![Dashboard](./assets/dashboard.png)
 
 Examples:
 - Wait +15 minutes → Better confirmation  
@@ -77,7 +82,6 @@ Examples:
 
 ### Trade Journal + Reflection
 
-![Journal](./assets/journal.png)
 
 - Timeline of trade lifecycle  
 - Reflection prompts  
@@ -157,28 +161,6 @@ Example insight:
 - Time-series analysis  
 - Rule-based + ML hybrid logic  
 
----
-
-## Project Structure
----
-backend/
-│
-├── agents/ # Decision-making agents 
-├── api/ # FastAPI routes and endpoints
-├── simulation/ # Counterfactual trade simulation logic
-├── utils/ # Helper utilities
-│
-├── init.py
-├── config.py # Configuration settings
-├── database.py # DB connection setup
-├── main.py # FastAPI entry point
-├── models.py # Database models
-├── schemas.py # Request/response schemas
-│
-├── .env
-├── .env.example
-├── requirements.txt
-└── README.md
 ---
 
 
